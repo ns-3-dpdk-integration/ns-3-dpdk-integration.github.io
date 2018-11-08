@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+    <title>Enabling network emulation support in ns-3 using Intel DPDK</title>
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <!-- TODO: Add google analytics -->
+  </head>
+  <body>
+    <nav class="vintage lighten-1" role="navigation">
+      <div class="nav-wrapper container">
+        <center><font size = "+1">ns-3-dpdk-integration</font></center>
+        <ul id="nav-mobile" class="side-nav">
+          <li><a href="#">Navbar Link</a></li>
+        </ul>
+        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+      </div>
+    </nav>
+    <div class="section no-pad-bot" id="index-banner">
+      <div class="container">
+        <br>
+        <h4 class="header center black-text">Enabling network emulation support in ns-3 using Intel DPDK</h4>
+        <div class="row center">
+          <h6 class="header col s12 light">
+          <font color="vintage">Students:</font> Harsh Patel, Hrishikesh Hiraskar, Nihala Karapoola<br>
+          NITK Suratkal, India
+          <br><br> 
+          <font color="vintage">Mentor:</font> Mohit P. Tahiliani, NITK Surathkal, India<br><br> 
+        </div>
+        <h5><font color="vintage">Project Overview</font></h5>
+        <p style="text-align:justify">Network emulation is an important feature in network simulators such as ns-3 to be able to interact with real devices. ns-3 provides network emulation support by creating raw sockets and making them interact with real hosts. This process uses the host networking stack which performs system calls in kernel space and performs read/write operation from/to the NIC. In this project, we try to extend ns-3's network emulation support by integrating DPDK in ns-3.</p>
+        <p style="text-align:justify">Data Plane Development Kit (DPDK) is a set of fast packet processing libraries by Intel which performs kernel bypassing by creating an Environment Abstraction Layer (EAL). This allows the applications in user space to directly interact with the network controller without having the kernel space in the picture. This type of packet processing is found to be highly efficient and is able to achieve almost line rate traffic processing.</p>
+        <p style="text-align:justify">This integration allows us to provide support for bypassing the host networking stack during network emulation. For this we have built a module named DpdkNetDevice in ns-3 which is a network device bridging the ns-3 and DPDK environments. DpdkNetDevice initializes DPDK environment by initializing the EAL, memory pool and Tx/Rx queues. One the basic setup is completed, it can perform kernel bypassing to write packets from ns-3 to the NIC Tx ring and read packets from NIC Rx ring to ns-3. //results line</p>
+        <h5><font color="vintage">Deliverables</font></h5>
+        <p style="text-align:justify">The project used DPDK libraries to send and recieve packets through ns-3. The complete project is available on github and the link to source code is shared below.</p>
+        <div class="row center">
+            <a href="https://github.com/harsh503/Integration-of-DPDK-in-ns-3" id="download-button" class="btn-large waves-effect waves-light maroon">Source Code</a>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+    <div class="section">
+      <h6><font color="brown">Steps to build the code</font></h6>
+      <p style="text-align:justify">A document is made to help everyone with the complete installation of this project from scratch. This includes checking for supported NIC(s) and installing, building and configuring DPDK, cloning and building ns-3 in DPDK repository and running a sample ping application.</p>
+      <div class="row center">
+            <a href="#" id="download-button" class="btn-large waves-effect waves-light maroon">Installation Document</a>
+        </div>
+    </div>
+
+    <h5><font color="vintage">Online References</font></h5>
+        <p style="text-align:justify">More details about this project and source code are available on the links given below: </p>
+        
+        <div class="row center">
+        <a href="https://github.com/harsh503/Integration-of-DPDK-in-ns-3/wiki" id="download-button" class="btn-large waves-effect waves-light maroon">Project Wiki</a>
+        <a href="https://github.com/harsh503/Integration-of-DPDK-in-ns-3" id="download-button" class="btn-large waves-effect waves-light maroon">Source Code</a>
+        </div>
+    </div>
+    
+    <footer class="page-footer vintage">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h5 class="white-text">Acknowledgement</h5>
+            <p class="grey-text text-lighten-4">We would like to thank our mentor Mohit P. Tahiliani who provided insight and expertise that greatly assisted the project and the understanding of the related topics. Also, we would like to thank the ns-3 team, especially Tom Henderson and Stefano Avallone who have helped us with few of our queries.</p>
+          </div>
+          <div class="col l3 s12">
+            <h5 class="white-text">People</h5>
+            <ul>
+              <li><a class="white-text" href="https://github.com/harsh503">Harsh Patel (Student)</a></li>
+              <li><a class="white-text" href="https://github.com/hrily">Hrishikesh Hiraskar (Student)</a></li>
+              <li><a class="white-text" href="https://github.com/nihalakp">Nihala Karapoola (Student)</a></li>
+              <li><a class="white-text" href="ttps://github.com/mohittahiliani">Mohit P. Tahiliani (Mentor)</a></li>
+            </ul>
+          </div>
+          <div class="col l3 s12">
+            <h5 class="white-text">Useful Links</h5>
+            <ul>
+              <li><a class="white-text" href="https://github.com/harsh503/Integration-of-DPDK-in-ns-3/wiki">Project Wiki</a></li>
+              <li><a class="white-text" href="https://github.com/harsh503/Integration-of-DPDK-in-ns-3">Source Repository</a></li>
+              <li><a class="white-text" href="#">Installation Document</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container">
+          <p>
+          <center>Made by <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a></center>
+          </p>
+        </div>
+      </div>
+      </div>
+    </footer>
+    <!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="js/materialize.js"></script>
+    <script src="js/init.js"></script>
+  </body>
+</html>

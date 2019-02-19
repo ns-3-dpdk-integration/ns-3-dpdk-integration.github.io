@@ -34,14 +34,14 @@
         <h4 class="header center black-text">Network Emulation Support in ns-3 using Intel DPDK</h4>
         <div class="row center">
           <h6 class="header col s12 light">
-          <font color="brown">Students:</font> Harsh Patel, Hrishikesh Hiraskar, Nihala Karapoola<br>
+          <font color="brown">Students:</font> Harsh Patel and Hrishikesh Hiraskar<br>
           <br><br> 
           <font color="brown">Mentor:</font> Mohit P. Tahiliani<br><br> 
         </div>
         <h5><font color="brown">Project Overview</font></h5>
-        <p style="text-align:justify">Network emulation is an important feature in network simulators such as ns-3 to be able to interact with real devices. ns-3 provides network emulation support by creating raw sockets and making them interact with real hosts. This process uses the host networking stack which performs system calls in kernel space and performs read/write operation from/to the NIC. In this project, we try to extend ns-3's network emulation support by integrating DPDK in ns-3.</p>
-        <p style="text-align:justify">Data Plane Development Kit (DPDK) is a set of fast packet processing libraries by Intel which performs kernel bypassing by creating an Environment Abstraction Layer (EAL). This allows the applications in user space to directly interact with the network controller without having the kernel space in the picture. This type of packet processing is found to be highly efficient and is able to achieve almost line rate traffic processing.</p>
-        <p style="text-align:justify">This integration allows us to provide support for bypassing the host networking stack during network emulation. For this we have built a module named DpdkNetDevice in ns-3 which is a network device bridging the ns-3 and DPDK environments. DpdkNetDevice initializes DPDK environment by initializing the EAL, memory pool and Tx/Rx queues. One the basic setup is completed, it can perform kernel bypassing to write packets from ns-3 to the NIC Tx ring and read packets from NIC Rx ring to ns-3.</p>
+        <p style="text-align:justify">Network emulation is an important feature in network simulators such as ns-3 to be able to interact with real devices. ns-3 provides network emulation support by creating raw sockets and making them interact with real hosts. This process uses the host network stack which performs system calls to read/write packets from/to the NIC. In this project, we try to extend ns-3's network emulation support by integrating DPDK in ns-3.</p>
+        <p style="text-align:justify">Intel's Data Plane Development Kit (DPDK) provides a set of fast packet processing libraries which performs kernel bypassing by creating an Environment Abstraction Layer (EAL). This allows the applications in user space to interact directly with the NIC. This type of packet processing is found to be highly efficient and is able to send packets almost at the line rate.</p>
+        <p style="text-align:justify">This integration allows us to bypass the host network stack during network emulation in ns-3. We have built a module named DpdkNetDevice in ns-3 which acts as an interface between ns-3 and DPDK environments. DpdkNetDevice initializes DPDK environment by initializing the EAL, memory pool and Tx/Rx queues. After initialization, it performs kernel bypassing to write packets from ns-3 to the NIC Tx ring and read packets from NIC Rx ring to ns-3.</p>
         <h5><font color="brown">Deliverables</font></h5>
         <p style="text-align:justify">The project used DPDK libraries to send and recieve packets through ns-3. The complete project is available on github and the link to source code is shared below.</p>
         <div class="row center">
@@ -74,14 +74,13 @@
         <div class="row">
           <div class="col l6 s12">
             <h5 class="white-text">Acknowledgements</h5>
-            <p class="grey-text text-lighten-4">We would like to thank our mentor Mohit P. Tahiliani who provided insight and expertise that greatly assisted the project and the understanding of the related topics. Further, we would like to thank the ns-3 team, especially Tom Henderson and Stefano Avallone who have helped us with our queries. Also, we would like to thank the DPDK team, especially Keith Wiles who assisted us on queries related to DPDK.</p>
+            <p class="grey-text text-lighten-4">We would like to thank our mentor Mohit P. Tahiliani who provided insight and expertise that greatly assisted the project and the understanding of the related topics. Further, we would like to thank the ns-3 team, especially Tom Henderson, Stefano Avallone and Pasquale Imputato who have helped us with our queries. Also, we would like to thank the DPDK team, especially Keith Wiles who assisted us with our queries related to DPDK.</p>
           </div>
           <div class="col l3 s12">
             <h5 class="white-text">People</h5>
             <ul>
               <li><a class="white-text" href="https://github.com/harsh503">Harsh Patel (Student)</a></li>
               <li><a class="white-text" href="https://github.com/hrily">Hrishikesh Hiraskar (Student)</a></li>
-              <li><a class="white-text" href="https://github.com/nihalakp">Nihala Karapoola (Student)</a></li>
               <li><a class="white-text" href="ttps://github.com/mohittahiliani">Mohit P. Tahiliani (Mentor)</a></li>
             </ul>
           </div>
